@@ -1,6 +1,6 @@
 {
   "name": "session-scraper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Simple scraper for imitating browsing sessions",
   "author": "Rory Fitzpatrick",
   "licenses": [
@@ -10,12 +10,12 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/rorys/session-scraper/issues"
+    "url": "https://github.com/roryf/session-scraper/issues"
   },
   "main": "./lib/scraper.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rorys/session-scraper.git"
+    "url": "git://github.com/roryf/session-scraper.git"
   },
   "scripts": {
     "test": "mocha test --reporter spec"
