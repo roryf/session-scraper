@@ -1,5 +1,7 @@
 # Session Scraper [![Build Status](https://secure.travis-ci.org/roryf/session-scraper.png)](http://travis-ci.org/roryf/session-scraper)
 
+![npm info](https://nodei.co/npm/session-scraper.png?compact=true)
+
 A super simple web scraper that mimicks a browsing session by saving cookies and refering URL from previous requests.
 
 # Install
