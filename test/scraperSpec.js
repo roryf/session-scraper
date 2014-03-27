@@ -46,6 +46,20 @@ describe('Scraper', function() {
         done();
       }, done);
     });
+
+    it('uses same user-agent for each request', function(done) {
+      nock('http://www.example.com')
+        .matchHeader('User-Agent', scraper.userAgent)
+        .get('/foobar')
+        .times(2)
+        .reply(200, 'Ok');
+
+      scraper.get('http://www.example.com/foobar').then(function() {
+        return scraper.get('http://www.example.com/foobar');
+      }).done(function() {
+        done();
+      }, done);
+    });
   });
 
   describe('#post()', function() {
