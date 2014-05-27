@@ -4,6 +4,8 @@
 
 A super simple web scraper that mimicks a browsing session by saving cookies and refering URL from previous requests.
 
+Add handle by cache
+
 # Install
 
 ```sh
@@ -15,7 +17,18 @@ $ npm install session-scraper
 ```js
 var Scraper = require('session-scraper');
 
-var scraper = new Scraper();
+var scraper = new Scraper.Cache;
+scraper.cache(function(opts, $){
+  if ($) {
+    console.log('-- Persist --');
+    console.log(opts);
+  } else {
+    console.log('-- Query --');
+    console.log(opts);
+    return false;
+  }
+});
+
 scraper.get('https://github.com/roryf?tab=repositories').then(function($) {
   var repoUrl = $('.repolist li:first-child h3 a').attr('href');
   var name = $('.repolist li:first-child h3 a').text();
