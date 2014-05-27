@@ -18,15 +18,16 @@ $ npm install session-scraper
 var Scraper = require('session-scraper');
 
 var scraper = new Scraper.Cache;
-scraper.cache(function(opts, $){
-  if ($) {
-    console.log('-- Persist --');
-    console.log(opts);
-  } else {
-    console.log('-- Query --');
-    console.log(opts);
-    return false;
-  }
+scraper.cache({
+    query: function (url, cb) {
+        console.log('-- Query --');
+        console.log(url);
+        cb(null, null);
+    },
+    persist: function (url, response, body) {
+        console.log('-- Persist --');
+        console.log(url);
+    }
 });
 
 scraper.get('https://github.com/roryf?tab=repositories').then(function($) {
