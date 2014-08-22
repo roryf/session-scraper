@@ -5,6 +5,7 @@
 A super simple web scraper that mimicks a browsing session by saving cookies and refering URL from previous requests.
 
 Add handle by cache
+Add Encoding handle
 
 # Install
 
