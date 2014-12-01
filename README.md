@@ -2,7 +2,7 @@
 
 ![npm info](https://nodei.co/npm/session-scraper.png?compact=true)
 
-A super simple web scraper that mimicks a browsing session by saving cookies and refering URL from previous requests.
+A super simple web scraper that mimicks a browsing session by saving cookies from previous requests.
 
 # Install
 

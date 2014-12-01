@@ -36,7 +36,6 @@ describe('Scraper', function() {
         });
       nock('http://www.example.com')
         .matchHeader('Cookie', 'foo=bar;')
-        .matchHeader('Referer', 'http://www.example.com/foobar')
         .get('/foobar')
         .reply(200, 'Hello, World!');
 
