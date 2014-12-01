@@ -49,6 +49,32 @@ describe('Scraper', function() {
       }, done);
     });
 
+    it('adds new headers', function(done) {
+      nock('http://www.example.com')
+        .get('/')
+        .reply(200, 'Hello, World!', {
+          'Set-Cookie': 'foo=bar;'
+        });
+      nock('http://www.example.com')
+        .matchHeader('Cookie', 'foo=bar')
+        .get('/foobar')
+        .reply(200, 'Hello, World!', {
+          'Set-Cookie': 'hello=world; foo=test'
+        });
+      nock('http://www.example.com')
+        .matchHeader('Cookie', 'foo=test; hello=world')
+        .get('/hello')
+        .reply(200, 'Hello, World!');
+
+      scraper.get('http://www.example.com/').then(function() {
+        return scraper.get('http://www.example.com/foobar');
+      }).then(function() {
+        return scraper.get('http://www.example.com/hello');
+      }).done(function() {
+        done();
+      }, done);
+    })
+
     it('uses same user-agent for each request', function(done) {
       nock('http://www.example.com')
         .matchHeader('User-Agent', scraper.userAgent)
