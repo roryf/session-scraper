@@ -30,16 +30,19 @@ describe('Scraper', function() {
 
     it('uses headers from previous response', function(done) {
       nock('http://www.example.com')
-        .get('/foobar')
+        .get('/')
         .reply(200, 'Hello, World!', {
           'Set-Cookie': 'foo=bar;'
         });
       nock('http://www.example.com')
-        .matchHeader('Cookie', 'foo=bar;')
+        .matchHeader('Cookie', 'foo=bar')
         .get('/foobar')
+        .times(2)
         .reply(200, 'Hello, World!');
 
-      scraper.get('http://www.example.com/foobar').then(function() {
+      scraper.get('http://www.example.com/').then(function() {
+        return scraper.get('http://www.example.com/foobar');
+      }).then(function() {
         return scraper.get('http://www.example.com/foobar');
       }).done(function() {
         done();
