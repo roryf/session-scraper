@@ -2,7 +2,7 @@
 
 ![npm info](https://nodei.co/npm/session-scraper.png?compact=true)
 
-A super simple web scraper that mimicks a browsing session by saving cookies and refering URL from previous requests.
+A super simple web scraper that mimicks a browsing session by saving cookies from previous requests.
 
 Add handle by cache
 Add Encoding handle
@@ -40,3 +40,25 @@ scraper.get('https://github.com/roryf?tab=repositories').then(function($) {
   });
 });
 ```
+
+# Options
+
+Scraper supports options to customise it's behaviour.
+
+## `userAgent`
+
+Provide a custom `User-Agent` header string. Ommiting this will use random user agent string.
+
+## `logLevel`
+
+Level of logging. All output is written to `console.log`. Levels:
+* `VERBOSE` log everything
+* `SILENT` log nothing
+
+## `output`
+
+Save all requests to a given relative directory. This will save one file per-request and allows scraper to use `input` option to load pre-scraped fixture data.
+
+## `input` 
+
+Load relative directory of fixture data representing requests. Scraper will only provide responses from this data.
