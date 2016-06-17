@@ -37,7 +37,7 @@
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.21.0",
     "cookie": "^0.2.3",
     "lodash": "^4.11.2",
     "promise": "^7.1.1",
