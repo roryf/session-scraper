@@ -28,7 +28,7 @@
     "crawl"
   ],
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^4.0.1",
     "chai-fs": "^1.0.0",
     "mocha": "^3.0.2",
     "nock": "^9.0.2",
